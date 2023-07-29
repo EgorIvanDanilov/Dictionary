@@ -8,7 +8,8 @@ public class Main {
     System.out.println("Dictionary");
     Scanner scanner = new Scanner(new File("res/dict.txt"));
     String n = scanner.nextLine();
-    System.out.println(" Our dictionary hat " + n + " words");
+    int total = Integer.parseInt(n);
+    System.out.println(" Our dictionary hat " + (total+1) + " words");
     printMenu();
     Scanner scanner1 = new Scanner(System.in);
     byte choice = scanner1.nextByte();
@@ -22,14 +23,25 @@ public class Main {
         }
         break;
       case (2):
-
+        System.out.println("Input a word");
+        String word = scanner1.next();
+        for (int i = 0; i < total; i++) {
+          //Доделать здесь
+          String word1 =scanner.next();
+          if (word1.equals(word)){
+            String definition = scanner.nextLine();
+            System.out.println(definition);
+          } else {
+            System.out.println("Word '" + word + "' not found ");
+          }
+        }
         break;
       default:
         System.out.println("Input 1 or 2");
         break;
     }
-
-
+    scanner.close();
+    scanner1.close();
   }
 
   public static void printMenu() {
